@@ -412,4 +412,35 @@ git init : Pour initier Git dans notre projet
 
 .gitignore : Fichier pour exclure certains dossiers ou fichiers de la sauvegarde.
 
+git log : Pour avoir la liste de tous nos commits.
+
+
+// GITHUB //
+
+Le tout se passe sur Git Bash, ne marche pas dans la console de Windows.
+
+Pour créer une clé SSH :
+
+	ssh-keygen -t rsa -b 4096 -C "paul.brumder@gmail.com"
+
+	eval "$(ssh-agent -s)"
+
+	ssh-add ~/.ssh/id_rsa
+
+Puis pour copier la clé SSH publique et la mettre sur GitHub :
+
+	clip < ~/.ssh/id_rsa.pub
+
+Et enfin pour valider la connexion :
+
+	ssh -T git@github.com
+
+
+Maintenant on peut retourner dans notre console Windows :
+
+	git remote add origin git@github.com:NatixDev/expensify-app.git
+
+Et enfin pour la première publication :
+
+	git push -u origin master
 
